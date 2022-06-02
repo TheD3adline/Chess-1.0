@@ -12,12 +12,14 @@ public class Board {
     }
 
     public void draw() {
+        System.out.println("   a  b  c  d  e  f  g  h ");
         for(int y = 0; y < fields.length; y++) {
-            System.out.print("|");
+            System.out.print((8 - y) + " ");
             for(int x = 0; x < fields[0].length; x++) {
-                System.out.print(fields[y][x].report() + "|");
+                System.out.print(fields[y][x].status(y, x));
             }
-            System.out.println();
+            System.out.println(" " + (8 - y));
         }
+        System.out.println("   a  b  c  d  e  f  g  h ");
     }
 }
