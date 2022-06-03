@@ -1,11 +1,15 @@
-public abstract class Player {
+public class Player {
 
     private int playerNumber;
     private String playerColor;
 
-    public Player(int playerNumber, String playerColor) {
+    public Player(int playerNumber) {
         this.playerNumber = playerNumber;
-        this.playerColor = playerColor;
+        if(playerNumber == 1) {
+            this.playerColor = "White";
+        } else if(playerNumber == 2) {
+            this.playerColor = "Black";
+        }
     }
 
     public int getPlayerNumber() {

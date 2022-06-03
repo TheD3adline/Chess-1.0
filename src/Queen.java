@@ -1,13 +1,13 @@
-public class Pawn extends Piece {
+public class Queen extends Piece {
 
     private String symbol;
 
-    public Pawn(int belongsToPlayer) {
+    public Queen(int belongsToPlayer) {
         super(belongsToPlayer);
         if(belongsToPlayer == 1) {
-            this.symbol = "\u2659";
+            this.symbol = "\u2655";
         } else if(belongsToPlayer == 2) {
-            this.symbol = "\u265F";
+            this.symbol = "\u265B";
         }
     }
 
