@@ -11,6 +11,7 @@ public class Rook extends Piece {
         }
     }
 
+    @Override
     public String getSymbol() {
         return symbol;
     }

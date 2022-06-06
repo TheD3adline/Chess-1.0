@@ -27,6 +27,8 @@ public abstract class Piece {
     public void setBelongsToColor(String belongsToColor) {
         this.belongsToColor = belongsToColor;
     }
+
+    public abstract String getSymbol();
     /*
                         "\u2654 " + // white king
                         "\u2655 " + // white queen

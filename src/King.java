@@ -11,6 +11,7 @@ public class King extends Piece {
         }
     }
 
+    @Override
     public String getSymbol() {
         return symbol;
     }

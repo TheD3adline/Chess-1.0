@@ -11,6 +11,7 @@ public class Bishop extends Piece {
         }
     }
 
+    @Override
     public String getSymbol() {
         return symbol;
     }
