@@ -20,29 +20,29 @@ public class Field {
         if(piece != null) {
             if((y % 2) == 0) {
                 if((x % 2) == 0) {
-                    return ANSI_WHITE_BACKGROUND + " " + piece.getSymbol() + " " + ANSI_RESET;
+                    return ANSI_WHITE_BACKGROUND + " " + piece.getSymbol() + ANSI_WHITE_BACKGROUND + " " + ANSI_RESET;
                 } else {
-                    return ANSI_BLACK_BACKGROUND + " " + piece.getSymbol() + " " + ANSI_RESET;
+                    return ANSI_BLACK_BACKGROUND + " " + piece.getSymbol() + ANSI_BLACK_BACKGROUND + " " + ANSI_RESET;
                 }
             } else {
                 if((x % 2) == 1) {
-                    return ANSI_WHITE_BACKGROUND + " " + piece.getSymbol() + " " + ANSI_RESET;
+                    return ANSI_WHITE_BACKGROUND + " " + piece.getSymbol() + ANSI_WHITE_BACKGROUND + " " + ANSI_RESET;
                 } else {
-                    return ANSI_BLACK_BACKGROUND + " " + piece.getSymbol() + " " + ANSI_RESET;
+                    return ANSI_BLACK_BACKGROUND + " " + piece.getSymbol() + ANSI_BLACK_BACKGROUND + " " + ANSI_RESET;
                 }
             }
         } else {
             if((y % 2) == 0) {
                 if((x % 2) == 0) {
-                    return ANSI_WHITE_BACKGROUND + "    " + ANSI_RESET;
+                    return ANSI_WHITE_BACKGROUND + "   " + ANSI_RESET;
                 } else {
-                    return ANSI_BLACK_BACKGROUND + "    " + ANSI_RESET;
+                    return ANSI_BLACK_BACKGROUND + "   " + ANSI_RESET;
                 }
             } else {
                 if((x % 2) == 1) {
-                    return ANSI_WHITE_BACKGROUND + "    " + ANSI_RESET;
+                    return ANSI_WHITE_BACKGROUND + "   " + ANSI_RESET;
                 } else {
-                    return ANSI_BLACK_BACKGROUND + "    " + ANSI_RESET;
+                    return ANSI_BLACK_BACKGROUND + "   " + ANSI_RESET;
                 }
             }
         }

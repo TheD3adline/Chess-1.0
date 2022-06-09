@@ -1,48 +1,47 @@
 public abstract class Piece {
 
-    private int belongsToPlayer;
-    private String belongsToColor;
+    private int player;
+    private String color;
+    private final String ANSI_GREEN = "\u001B[32m";
+    private final String ANSI_RED = "\u001B[31m";
+    private final String ANSI_RESET = "\u001B[0m";
 
-    public Piece(int belongsToPlayer) {
-        this.belongsToPlayer = belongsToPlayer;
-        if(belongsToPlayer == 1) {
-            this.belongsToColor = "White";
-        } else if(belongsToPlayer == 2) {
-            this.belongsToColor = "Black";
+    public Piece(int player) {
+        this.player = player;
+        if(player == 1) {
+            this.color = "Green";
+        } else if(player == 2) {
+            this.color = "Red";
         }
     }
 
-    public int getBelongsToPlayer() {
-        return belongsToPlayer;
-    }
-
-    public void setBelongsToPlayer(int belongsToPlayer) {
-        this.belongsToPlayer = belongsToPlayer;
-    }
-
-    public String getBelongsToColor() {
-        return belongsToColor;
-    }
-
-    public void setBelongsToColor(String belongsToColor) {
-        this.belongsToColor = belongsToColor;
-    }
-
     public abstract String getSymbol();
-    /*
-                        "\u2654 " + // white king
-                        "\u2655 " + // white queen
-                        "\u2656 " + // white rook
-                        "\u2657 " + // white bishop
-                        "\u2658 " + // white knight
-                        "\u2659 " + // white pawn
 
-                        "\u265A " + // black king
-                        "\u265B " + // black queen
-                        "\u265C " + // black rook
-                        "\u265D " + // black bishop
-                        "\u265E " + // black knight
-                        "\u265F " + // black pawn
+    public int getPlayer() {
+        return player;
+    }
 
-    */
+    public void setPlayer(int player) {
+        this.player = player;
+    }
+
+    public String color() {
+        return color;
+    }
+
+    public void color(String color) {
+        this.color = color;
+    }
+
+    public String getANSI_GREEN() {
+        return ANSI_GREEN;
+    }
+
+    public String getANSI_RED() {
+        return ANSI_RED;
+    }
+
+    public String getANSI_RESET() {
+        return ANSI_RESET;
+    }
 }

@@ -1,18 +1,19 @@
 public class King extends Piece {
 
-    private String symbol;
+    private String symbol = "K";
 
-    public King(int belongsToPlayer) {
-        super(belongsToPlayer);
-        if(belongsToPlayer == 1) {
-            this.symbol = "\u2655";
-        } else if(belongsToPlayer == 2) {
-            this.symbol = "\u265B";
-        }
+    public King(int player) {
+        super(player);
     }
 
     @Override
     public String getSymbol() {
-        return symbol;
+        if(getPlayer() == 1) {
+            return getANSI_GREEN() + this.symbol + getANSI_RESET();
+        } else if(getPlayer() == 2) {
+            return getANSI_RED() + this.symbol + getANSI_RESET();
+        } else {
+            return null;
+        }
     }
 }
