@@ -1,6 +1,7 @@
 public class Board {
 
     private Field[][] fields;
+    private String[] legend;
 
     public Board() {
         fields = new Field[8][8];
@@ -55,6 +56,15 @@ public class Board {
                 fields[y][x] = new Field();
             }
         }
+        legend = new String[8];
+        legend[0] = "Legend:";
+        legend[1] = "   ";
+        legend[2] = "K...King";
+        legend[3] = "Q...Queen";
+        legend[4] = "B...Bishop";
+        legend[5] = "N...Knight";
+        legend[6] = "R...Rook";
+        legend[7] = "P...Pawn";
     }
 
     public void draw() {
@@ -64,7 +74,7 @@ public class Board {
             for(int x = 0; x < fields[0].length; x++) {
                 System.out.print(fields[y][x].status(y, x));
             }
-            System.out.println(" " + (8 - y));
+            System.out.println(" " + (8 - y) + "      |" + legend[y]);
         }
         System.out.println("   a  b  c  d  e  f  g  h ");
     }

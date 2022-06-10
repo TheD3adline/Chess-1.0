@@ -1,6 +1,6 @@
 public class Queen extends Piece {
 
-    private String symbol = "D";
+    private String symbol = "Q";
 
     public Queen(int player) {
         super(player);

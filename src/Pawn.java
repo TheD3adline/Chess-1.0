@@ -1,6 +1,6 @@
 public class Pawn extends Piece {
 
-    private String symbol = "B";
+    private String symbol = "P";
 
     public Pawn(int player) {
         super(player);

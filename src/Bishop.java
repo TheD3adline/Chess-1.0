@@ -1,6 +1,6 @@
 public class Bishop extends Piece {
 
-    private String symbol = "L";
+    private String symbol = "B";
 
     public Bishop(int player) {
         super(player);

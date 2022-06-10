@@ -1,6 +1,6 @@
 public class Rook extends Piece {
 
-    private String symbol = "T";
+    private String symbol = "R";
 
     public Rook(int player) {
         super(player);

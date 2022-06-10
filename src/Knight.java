@@ -1,6 +1,6 @@
 public class Knight extends Piece {
 
-    private String symbol = "S";
+    private String symbol = "N";
 
     public Knight(int player) {
         super(player);
