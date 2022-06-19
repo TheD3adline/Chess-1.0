@@ -40,7 +40,7 @@ public class Board {
                 System.out.print(fields[y][x].status(y, x));
             }
             if(y < 6) {
-                System.out.println(" " + (8 - y) + "        " + legends[y]);
+                System.out.println(" " + (8 - y) + "        " + legends[y]); //legends array is soon going to be a static class
             } else {
                 System.out.println(" " + (8 - y));
             }
