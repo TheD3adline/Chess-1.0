@@ -1,6 +1,7 @@
 public class King extends Piece {
 
     private String symbol = "K";
+    private String legend = "K...King";
 
     public King(int player) {
         super(player);
@@ -15,5 +16,9 @@ public class King extends Piece {
         } else {
             return null;
         }
+    }
+
+    public String getLegend() {
+        return legend;
     }
 }

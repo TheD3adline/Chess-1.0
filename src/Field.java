@@ -11,11 +11,6 @@ public class Field {
         this.piece = null;
     }
 
-    public Field(Piece piece) {
-        this.vacant = true;
-        this.piece = piece;
-    }
-
     public String status(int y, int x) {
         if(piece != null) {
             if((y % 2) == 0) {
@@ -46,5 +41,22 @@ public class Field {
                 }
             }
         }
+    }
+
+    public boolean isVacant() {
+        return vacant;
+    }
+
+    public void setVacant(boolean vacant) {
+        this.vacant = vacant;
+    }
+
+    public Piece getPiece() {
+        return piece;
+    }
+
+    public void setPiece(Piece piece) {
+        this.piece = piece;
+        this.vacant = true;
     }
 }

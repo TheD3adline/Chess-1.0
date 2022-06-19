@@ -16,6 +16,7 @@ public abstract class Piece {
     }
 
     public abstract String getSymbol();
+    public abstract String getLegend();
 
     public int getPlayer() {
         return player;

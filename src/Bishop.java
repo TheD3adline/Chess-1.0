@@ -1,6 +1,7 @@
 public class Bishop extends Piece {
 
     private String symbol = "B";
+    private String legend = "B...Bishop";
 
     public Bishop(int player) {
         super(player);
@@ -15,5 +16,9 @@ public class Bishop extends Piece {
         } else {
             return null;
         }
+    }
+
+    public String getLegend() {
+        return legend;
     }
 }

@@ -1,6 +1,7 @@
 public class Pawn extends Piece {
 
     private String symbol = "P";
+    private String legend = "P...Pawn";
 
     public Pawn(int player) {
         super(player);
@@ -15,5 +16,10 @@ public class Pawn extends Piece {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public String getLegend() {
+        return legend;
     }
 }
