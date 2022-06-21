@@ -3,12 +3,16 @@ public class Board {
     private Field[][] fields;
     private String[] legends;
 
-    public Board() {
+    public Board(Player green) {
         fields = new Field[8][8];
         for (int y = 0; y < fields.length; y++) {
             for (int x = 0; x < fields[0].length; x++) {
                 fields[y][x] = new Field();
             }
+        }
+        legends = new String[6];
+        for(int k = 7, l = 0; k < 13; k++, l++) {
+            legends[l] = green.getPiece(k).getLegend();
         }
     }
 
@@ -26,10 +30,6 @@ public class Board {
                 j++;
             }
         }
-        legends = new String[6];
-        for(int k = 7, l = 0; k < 13; k++, l++) {
-            legends[l] = green.getPiece(k).getLegend();
-        }
     }
 
     public void draw() {
@@ -40,7 +40,7 @@ public class Board {
                 System.out.print(fields[y][x].status(y, x));
             }
             if(y < 6) {
-                System.out.println(" " + (8 - y) + "        " + legends[y]); //legends array is soon going to be a static class
+                System.out.println(" " + (8 - y) + "        " + legends[y]);
             } else {
                 System.out.println(" " + (8 - y));
             }
