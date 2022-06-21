@@ -37,4 +37,8 @@ public class Player {
     public Piece getPiece(int i) {
         return this.roster[i];
     }
+
+    public String getColor() {
+        return color;
+    }
 }
