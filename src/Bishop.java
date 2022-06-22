@@ -1,6 +1,7 @@
 public class Bishop extends Piece {
 
     private String symbol = "B";
+    private String nameOfPiece = "Bishop";
     private String legend = "B...Bishop";
 
     public Bishop(int player) {
@@ -18,7 +19,13 @@ public class Bishop extends Piece {
         }
     }
 
+    @Override
     public String getLegend() {
         return legend;
+    }
+
+    @Override
+    public String getNameOfPiece() {
+        return nameOfPiece;
     }
 }

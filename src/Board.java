@@ -4,7 +4,7 @@ public class Board {
 
     private Field[][] fields;
     private String[] legends;
-    Scanner sc;
+    private Scanner sc;
 
     public Board(Player green) {
         fields = new Field[8][8];
@@ -54,12 +54,32 @@ public class Board {
 
     public void turn(Player player) {
         String input;
-        int y, x;
-        System.out.print(player.getColor() + ", enter field to select your piece for the turn (format examples: g5, a2, or e8): ");
+        int yStart, xStart, yEnd, xEnd;
+        System.out.print(player.getColor() + ", enter field to select the piece for your next turn (In the format => g5, a2, or e8): ");
         input = sc.next();
-        if((input.charAt(0) == 'a') || (input.charAt(0) == 'b') || (input.charAt(0) == 'c') || (input.charAt(0) == 'd') || (input.charAt(0) == 'e') || (input.charAt(0) == 'f') || (input.charAt(0) == 'g') || (input.charAt(0) == 'h')) {
-            if((input.charAt(1) == '1') || (input.charAt(1) == '2') || (input.charAt(1) == '3') || (input.charAt(1) == '4') || (input.charAt(1) == '5') || (input.charAt(1) == '6') || (input.charAt(1) == '7') || (input.charAt(1) == '8')) {
-
+        if(input.length() < 3) {
+            if((input.charAt(0) == 'a') || (input.charAt(0) == 'b') || (input.charAt(0) == 'c') || (input.charAt(0) == 'd') || (input.charAt(0) == 'e') || (input.charAt(0) == 'f') || (input.charAt(0) == 'g') || (input.charAt(0) == 'h')) {
+                if((input.charAt(1) == '1') || (input.charAt(1) == '2') || (input.charAt(1) == '3') || (input.charAt(1) == '4') || (input.charAt(1) == '5') || (input.charAt(1) == '6') || (input.charAt(1) == '7') || (input.charAt(1) == '8')) {
+                    xStart = (input.charAt(0) - 97);
+                    yStart = (8 - Integer.parseInt(String.valueOf(input.charAt(1))));
+                    if(fields[yStart][xStart].isVacant()) {
+                        if(player.getColor().equals(fields[yStart][xStart].getPiece().getColor())) {
+                            System.out.print("You have selected the " + fields[yStart][xStart].getPiece().getNameOfPiece() + " on the field " + input + ", where do you want to move your " + fields[yStart][xStart].getPiece().getNameOfPiece() + "? (In the format => g5, a2, or e8): ");
+                            input = null;
+                            input = sc.next();
+                            if(input.length() < 3) {
+                                if((input.charAt(0) == 'a') || (input.charAt(0) == 'b') || (input.charAt(0) == 'c') || (input.charAt(0) == 'd') || (input.charAt(0) == 'e') || (input.charAt(0) == 'f') || (input.charAt(0) == 'g') || (input.charAt(0) == 'h')) {
+                                    if((input.charAt(1) == '1') || (input.charAt(1) == '2') || (input.charAt(1) == '3') || (input.charAt(1) == '4') || (input.charAt(1) == '5') || (input.charAt(1) == '6') || (input.charAt(1) == '7') || (input.charAt(1) == '8')) {
+                                        xEnd = (input.charAt(0) - 97);
+                                        yEnd = (8 - Integer.parseInt(String.valueOf(input.charAt(1))));
+                                        fields[yEnd][xEnd].setPiece(fields[yStart][xStart].getPiece());
+                                        fields[yStart][xStart].removePiece();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

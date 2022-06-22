@@ -17,6 +17,7 @@ public abstract class Piece {
 
     public abstract String getSymbol();
     public abstract String getLegend();
+    public abstract String getNameOfPiece();
 
     public int getPlayer() {
         return player;
@@ -26,11 +27,11 @@ public abstract class Piece {
         this.player = player;
     }
 
-    public String color() {
+    public String getColor() {
         return color;
     }
 
-    public void color(String color) {
+    public void setColor(String color) {
         this.color = color;
     }
 

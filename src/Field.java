@@ -59,4 +59,9 @@ public class Field {
         this.piece = piece;
         this.vacant = true;
     }
+
+    public void removePiece() {
+        this.piece = null;
+        this.vacant = false;
+    }
 }
