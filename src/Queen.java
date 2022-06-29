@@ -28,4 +28,9 @@ public class Queen extends Piece {
     public String getNameOfPiece() {
         return nameOfPiece;
     }
+
+    @Override
+    public boolean turnIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        return false;
+    }
 }

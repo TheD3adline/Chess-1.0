@@ -3,6 +3,7 @@ public class Pawn extends Piece {
     private String symbol = "P";
     private String nameOfPiece = "Pawn";
     private String legend = "P...Pawn";
+    private int turnNumber = 1;
 
     public Pawn(int player) {
         super(player);
@@ -27,5 +28,15 @@ public class Pawn extends Piece {
     @Override
     public String getNameOfPiece() {
         return nameOfPiece;
+    }
+
+    @Override
+    public boolean turnIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if(this.turnNumber == 1) {
+            if(getPlayer() == 1) {
+
+            }
+        }
+        return false;
     }
 }
