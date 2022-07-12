@@ -30,7 +30,7 @@ public class Knight extends Piece {
     }
 
     @Override
-    public boolean turnIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+    public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
         return false;
     }
 }

@@ -56,6 +56,7 @@ public class Board {
         String input;
         int yStart, xStart, yEnd, xEnd;
         System.out.print(player.getColor() + ", enter field to select the piece for your next turn (In the format => g5, a2, or e8): ");
+        input = null;
         input = sc.next();
         if(input.length() < 3) {
             if((input.charAt(0) == 'a') || (input.charAt(0) == 'b') || (input.charAt(0) == 'c') || (input.charAt(0) == 'd') || (input.charAt(0) == 'e') || (input.charAt(0) == 'f') || (input.charAt(0) == 'g') || (input.charAt(0) == 'h')) {

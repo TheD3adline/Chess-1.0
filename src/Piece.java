@@ -18,7 +18,7 @@ public abstract class Piece {
     public abstract String getSymbol();
     public abstract String getLegend();
     public abstract String getNameOfPiece();
-    public abstract boolean turnIsValid(int yStart, int xStart, int yEnd, int xEnd);
+    public abstract boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd);
 
     public int getPlayer() {
         return player;

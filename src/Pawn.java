@@ -3,7 +3,7 @@ public class Pawn extends Piece {
     private String symbol = "P";
     private String nameOfPiece = "Pawn";
     private String legend = "P...Pawn";
-    private int turnNumber = 1;
+    private boolean firstMove = true;
 
     public Pawn(int player) {
         super(player);
@@ -31,10 +31,16 @@ public class Pawn extends Piece {
     }
 
     @Override
-    public boolean turnIsValid(int yStart, int xStart, int yEnd, int xEnd) {
-        if(this.turnNumber == 1) {
+    public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if(firstMove) {
             if(getPlayer() == 1) {
+                if(xStart == xEnd) {
+                    if((yEnd < yStart) && ((yStart - yEnd) <= 2)) {
+                        return true;
+                    }
+                } else if((xStart > 0) && (xStart < 7)) {
 
+                }
             }
         }
         return false;
