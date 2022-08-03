@@ -34,12 +34,34 @@ public class Pawn extends Piece {
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
         if(firstMove) {
             if(getPlayer() == 1) {
-                if(xStart == xEnd) {
-                    if((yEnd < yStart) && ((yStart - yEnd) <= 2)) {
-                        return true;
-                    }
-                } else if((xStart > 0) && (xStart < 7)) {
-
+                if((xEnd == xStart) && ((yEnd == (yStart - 1)) || (yEnd == (yStart - 2)))) {
+                    firstMove = false;
+                    return true;
+                } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart - 1))) {
+                    firstMove = false;
+                    return true;
+                }
+            } else if(getPlayer() == 2) {
+                if((xEnd == xStart) && ((yEnd == (yStart + 1)) || (yEnd == (yStart + 2)))) {
+                    firstMove = false;
+                    return true;
+                } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart + 1))) {
+                    firstMove = false;
+                    return true;
+                }
+            }
+        } else if(!firstMove) {
+            if(getPlayer() == 1) {
+                if((xEnd == xStart) && (yEnd == (yStart - 1))) {
+                    return true;
+                } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart - 1))) {
+                    return true;
+                }
+            } else if(getPlayer() == 2) {
+                if((xEnd == xStart) && (yEnd == (yStart + 1))) {
+                    return true;
+                } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart + 1))) {
+                    return true;
                 }
             }
         }
