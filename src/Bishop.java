@@ -31,6 +31,15 @@ public class Bishop extends Piece {
 
     @Override
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if((yEnd <= (yStart - 1)) && (yEnd >= (yStart - 7)) && ((xEnd <= (xStart - 1)) && (xEnd >= (xStart - 7)))) {
+            return true;
+        } else if((yEnd <= (yStart + 1)) && (yEnd >= (yStart + 7)) && ((xEnd <= (xStart + 1)) && (xEnd >= (xStart + 7)))) {
+            return true;
+        } else if((yEnd <= (yStart - 1)) && (yEnd >= (yStart - 7)) && ((xEnd <= (xStart + 1)) && (xEnd >= (xStart + 7)))) {
+            return true;
+        } else if((yEnd <= (yStart + 1)) && (yEnd >= (yStart + 7)) && ((xEnd <= (xStart - 1)) && (xEnd >= (xStart - 7)))) {
+            return true;
+        }
         return false;
     }
 }
