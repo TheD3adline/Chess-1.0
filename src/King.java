@@ -31,6 +31,13 @@ public class King extends Piece {
 
     @Override
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if((yEnd == yStart) && ((xEnd == (xStart - 1)) || (xEnd == (xStart + 1)))) {
+            return true;
+        } else if((xEnd == xStart) && ((yEnd == (yStart - 1)) || (yEnd == (yStart + 1)))) {
+            return true;
+        } else if(((yEnd == (yStart - 1)) || (yEnd == (yStart + 1))) && ((xEnd == (xStart - 1)) || (xEnd == (xStart + 1)))) {
+            return true;
+        }
         return false;
     }
 }
