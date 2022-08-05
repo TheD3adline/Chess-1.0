@@ -31,6 +31,11 @@ public class Knight extends Piece {
 
     @Override
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if(((xEnd == (xStart + 1)) || (xEnd == (xStart - 1))) && ((yEnd == (yStart + 2)) || (yEnd == (yStart - 2)))) {
+            return true;
+        } else if(((xEnd == (xStart + 2)) || (xEnd == (xStart - 2))) && ((yEnd == (yStart + 1)) || (yEnd == (yStart - 1)))) {
+            return true;
+        }
         return false;
     }
 }
