@@ -4,10 +4,12 @@ public class Main {
         Player green = new Player("Green");
         Player red = new Player("Red");
         Board board = new Board(green);
-        board.draw();
         board.placePieces(green, red);
-        board.draw();
-        board.turn(green);
-        board.draw();
+        while(true) {
+            board.draw();
+            board.turn(green);
+            board.draw();
+            board.turn(red);
+        }
     }
 }

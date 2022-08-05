@@ -31,6 +31,9 @@ public class Rook extends Piece {
 
     @Override
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if((xEnd == xStart) || (yEnd == yStart)) {
+            return true;
+        }
         return false;
     }
 }
