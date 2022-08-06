@@ -31,6 +31,21 @@ public class Queen extends Piece {
 
     @Override
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
+        if((xEnd == xStart) || (yEnd == yStart)) {
+            return true;
+        } else {
+            for(int i = 1; i <= 7; i++) {
+                if((yEnd == (yStart - i)) && (xEnd == (xStart + i))) {
+                    return true;
+                } else if((yEnd == (yStart + i)) && (xEnd == (xStart - i))) {
+                    return true;
+                } else if((yEnd == (yStart - i)) && (xEnd == (xStart - i))) {
+                    return true;
+                } else if((yEnd == (yStart + i)) && (xEnd == (xStart + i))) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }
