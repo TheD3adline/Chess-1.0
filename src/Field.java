@@ -7,7 +7,7 @@ public class Field {
     private final String ANSI_RESET = "\u001B[0m";
 
     public Field() {
-        this.vacant = false;
+        this.vacant = true;
         this.piece = null;
     }
 
@@ -57,11 +57,11 @@ public class Field {
 
     public void setPiece(Piece piece) {
         this.piece = piece;
-        this.vacant = true;
+        this.vacant = false;
     }
 
     public void removePiece() {
         this.piece = null;
-        this.vacant = false;
+        this.vacant = true;
     }
 }
