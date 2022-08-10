@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Board {
 
-    private Field[][] fields;
+    private static Field[][] fields;
     private String[] legends;
     private Scanner sc;
 
@@ -86,5 +86,8 @@ public class Board {
                 }
             }
         }
+    }
+    public static Field getFieldStatus(int y, int x) {
+        return fields[y][x];
     }
 }
