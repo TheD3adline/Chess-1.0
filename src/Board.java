@@ -63,7 +63,7 @@ public class Board {
                 if((input.charAt(1) == '1') || (input.charAt(1) == '2') || (input.charAt(1) == '3') || (input.charAt(1) == '4') || (input.charAt(1) == '5') || (input.charAt(1) == '6') || (input.charAt(1) == '7') || (input.charAt(1) == '8')) {
                     xStart = (input.charAt(0) - 97);
                     yStart = (8 - Integer.parseInt(String.valueOf(input.charAt(1))));
-                    if(fields[yStart][xStart].isVacant()) {
+                    if(!fields[yStart][xStart].isVacant()) {
                         if(player.getColor().equals(fields[yStart][xStart].getPiece().getColor())) {
                             System.out.print("You have selected your " + fields[yStart][xStart].getPiece().getNameOfPiece() + " on the field " + input + ", where do you want to move your " + fields[yStart][xStart].getPiece().getNameOfPiece() + "? (In the format => g5, a2, or e8): ");
                             input = null;
@@ -74,7 +74,7 @@ public class Board {
                                         xEnd = (input.charAt(0) - 97);
                                         yEnd = (8 - Integer.parseInt(String.valueOf(input.charAt(1))));
                                         if(fields[yStart][xStart].getPiece().moveIsValid(yStart, xStart, yEnd, xEnd)) {
-                                            System.out.println("You have successfully moved the " + fields[yStart][xStart].getPiece().getNameOfPiece() + " to " + input + ".");
+                                            System.out.println("Moved the " + fields[yStart][xStart].getPiece().getNameOfPiece() + " to " + input + ".");
                                             fields[yEnd][xEnd].setPiece(fields[yStart][xStart].getPiece());
                                             fields[yStart][xStart].removePiece();
                                         }

@@ -7,7 +7,7 @@ public class Main {
         board.placePieces(green, red);
         while(true) {
             board.draw();
-            board.turn(red);
+            board.turn(green);
             board.draw();
             board.turn(red);
         }

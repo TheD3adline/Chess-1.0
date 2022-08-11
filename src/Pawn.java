@@ -35,37 +35,111 @@ public class Pawn extends Piece {
         if(firstMove) {
             if(getPlayer() == 1) {
                 if((xEnd == xStart) && ((yEnd == (yStart - 1)) || (yEnd == (yStart - 2)))) {
-                    Board.getFieldStatus(yEnd, xEnd).isVacant(); // HOW TO PROCEED WITH COLLISION AND STRIKE CHECKS!!!
-                    firstMove = false;
-                    return true;
+                    if((yEnd == (yStart - 1)) && (Board.getFieldStatus(yEnd, xEnd).isVacant())) {
+                        firstMove = false;
+                        return true;
+                    } else if((yEnd == (yStart - 2)) && ((Board.getFieldStatus(yEnd + 1, xEnd).isVacant()) && (Board.getFieldStatus(yEnd, xEnd).isVacant()))) {
+                        firstMove = false;
+                        return true;
+                    } else {
+                        System.out.println("Invalid turn, the path is blocked!");
+                        return false;
+                    }
                 } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart - 1))) {
-                    firstMove = false;
-                    return true;
+                    if(!Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                        if(Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer() == 2) {
+                            System.out.println("Performed a strike on the Red " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                            Board.getFieldStatus(yEnd, xEnd).removePiece();
+                            firstMove = false;
+                            return true;
+                        } else {
+                            System.out.println("Invalid turn, you can't strike your own piece!");
+                            return false;
+                        }
+                    } else {
+                        System.out.println("Invalid turn, move not legal!");
+                        return false;
+                    }
                 }
             } else if(getPlayer() == 2) {
                 if((xEnd == xStart) && ((yEnd == (yStart + 1)) || (yEnd == (yStart + 2)))) {
-                    firstMove = false;
-                    return true;
+                    if((yEnd == (yStart + 1)) && (Board.getFieldStatus(yEnd, xEnd).isVacant())) {
+                        firstMove = false;
+                        return true;
+                    } else if((yEnd == (yStart + 2)) && ((Board.getFieldStatus(yEnd - 1, xEnd).isVacant()) && (Board.getFieldStatus(yEnd, xEnd).isVacant()))) {
+                        firstMove = false;
+                        return true;
+                    } else {
+                        System.out.println("Invalid turn, the path is blocked!");
+                        return false;
+                    }
                 } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart + 1))) {
-                    firstMove = false;
-                    return true;
+                    if(!Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                        if(Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer() == 1) {
+                            System.out.println("Performed a strike on the Green " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                            Board.getFieldStatus(yEnd, xEnd).removePiece();
+                            firstMove = false;
+                            return true;
+                        } else {
+                            System.out.println("Invalid turn, you can't strike your own piece!");
+                            return false;
+                        }
+                    } else {
+                        System.out.println("Invalid turn, move not legal!");
+                        return false;
+                    }
                 }
             }
         } else if(!firstMove) {
             if(getPlayer() == 1) {
                 if((xEnd == xStart) && (yEnd == (yStart - 1))) {
-                    return true;
+                    if(Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                        return true;
+                    } else {
+                        System.out.println("Invalid turn, the path is blocked!");
+                        return false;
+                    }
                 } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart - 1))) {
-                    return true;
+                    if(!Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                        if(Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer() == 2) {
+                            System.out.println("Performed a strike on the Red " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                            Board.getFieldStatus(yEnd, xEnd).removePiece();
+                            return true;
+                        } else {
+                            System.out.println("Invalid turn, you can't strike your own piece!");
+                            return false;
+                        }
+                    } else {
+                        System.out.println("Invalid turn, move not legal!");
+                        return false;
+                    }
                 }
             } else if(getPlayer() == 2) {
                 if((xEnd == xStart) && (yEnd == (yStart + 1))) {
-                    return true;
+                    if(Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                        return true;
+                    } else {
+                        System.out.println("Invalid turn, the path is blocked!");
+                        return false;
+                    }
                 } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart + 1))) {
-                    return true;
+                    if(!Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                        if(Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer() == 2) {
+                            System.out.println("Performed a strike on the Green " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                            Board.getFieldStatus(yEnd, xEnd).removePiece();
+                            return true;
+                        } else {
+                            System.out.println("Invalid turn, you can't strike your own piece!");
+                            return false;
+                        }
+                    } else {
+                        System.out.println("Invalid turn, move not legal!");
+                        return false;
+                    }
                 }
             }
         }
+        System.out.println("Invalid turn, move not legal!");
         return false;
     }
 }
