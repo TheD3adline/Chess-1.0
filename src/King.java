@@ -32,11 +32,41 @@ public class King extends Piece {
     @Override
     public boolean moveIsValid(int yStart, int xStart, int yEnd, int xEnd) {
         if((yEnd == yStart) && ((xEnd == (xStart - 1)) || (xEnd == (xStart + 1)))) {
-            return true;
+            if (Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                return true;
+            } else if (this.getPlayer() != Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer()) {
+                System.out.println("Performed a strike on the " + Board.getFieldStatus(yEnd, xEnd).getPiece().getColor() + " " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                Board.getFieldStatus(yEnd, xEnd).removePiece();
+                return true;
+            } else if (this.getPlayer() == Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer()) {
+                System.out.println("Invalid turn, you can't strike your own piece!");
+                return false;
+            }
         } else if((xEnd == xStart) && ((yEnd == (yStart - 1)) || (yEnd == (yStart + 1)))) {
-            return true;
+            if (Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                return true;
+            } else if (this.getPlayer() != Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer()) {
+                System.out.println("Performed a strike on the " + Board.getFieldStatus(yEnd, xEnd).getPiece().getColor() + " " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                Board.getFieldStatus(yEnd, xEnd).removePiece();
+                return true;
+            } else if (this.getPlayer() == Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer()) {
+                System.out.println("Invalid turn, you can't strike your own piece!");
+                return false;
+            }
         } else if(((yEnd == (yStart - 1)) || (yEnd == (yStart + 1))) && ((xEnd == (xStart - 1)) || (xEnd == (xStart + 1)))) {
-            return true;
+            if (Board.getFieldStatus(yEnd, xEnd).isVacant()) {
+                return true;
+            } else if (this.getPlayer() != Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer()) {
+                System.out.println("Performed a strike on the " + Board.getFieldStatus(yEnd, xEnd).getPiece().getColor() + " " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
+                Board.getFieldStatus(yEnd, xEnd).removePiece();
+                return true;
+            } else if (this.getPlayer() == Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer()) {
+                System.out.println("Invalid turn, you can't strike your own piece!");
+                return false;
+            }
+        } else {
+            System.out.println("Invalid turn, move not legal!");
+            return false;
         }
         return false;
     }
