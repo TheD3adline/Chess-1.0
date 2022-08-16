@@ -124,7 +124,7 @@ public class Pawn extends Piece {
                     }
                 } else if(((xEnd == (xStart - 1)) || (xEnd == (xStart + 1))) && (yEnd == (yStart + 1))) {
                     if(!Board.getFieldStatus(yEnd, xEnd).isVacant()) {
-                        if(Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer() == 2) {
+                        if(Board.getFieldStatus(yEnd, xEnd).getPiece().getPlayer() == 1) {
                             System.out.println("Performed a strike on the Green " + Board.getFieldStatus(yEnd, xEnd).getPiece().getNameOfPiece() + "!");
                             Board.getFieldStatus(yEnd, xEnd).removePiece();
                             return true;

@@ -14,3 +14,5 @@ To Do: Pawn promotion
        Win check
        Add check to declare move invalid if movement end is same as starting point
        Properly loop every input prompt in case of invalid turn input
+       Fix collision check of Rook.java, and implement same collision check for the condition where the target square is occupied by own piece
+       When only an input with a length of 1 is made (in mistake) an error occurs, deal with that hole
